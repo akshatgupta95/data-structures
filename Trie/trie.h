@@ -1,3 +1,12 @@
+
+/*
+ * This file has been coded by taking help from SourceTricks.com 
+ */
+
+
+
+
+
 #ifndef TRIE_trie_h
 #define TRIE_trie_h
 #include <iostream>
@@ -12,7 +21,6 @@ class Node{
 public:
 
 	Node();
-	// ~Node();
 	char content();
 	void setContent(char c);
 	bool wordMarker();
