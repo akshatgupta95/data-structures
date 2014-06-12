@@ -11,7 +11,7 @@ public class OutputTest {
 		tree.insertWord("am");
 		tree.insertWord("ammo");
 		
-		System.out.println(tree.getLongestPrefixMatch("ammo"));
+		System.out.println(tree.getLongestPrefixMatch("amm")); // am
 	}
 
 }
