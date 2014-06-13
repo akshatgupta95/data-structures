@@ -101,7 +101,7 @@ public class Trie {
 		}
 
 		/*
-		 * Java recognizes 001 as 0, so always start the bit string with '9' so
+		 * Java recognizes 001 as 1, so always start the bit string with '9' so
 		 * that Java does not ignore any 0 in the beginning. But we don't want a
 		 * 9 in the actual array so start the counter at 1
 		 */
