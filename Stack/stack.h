@@ -4,7 +4,9 @@
 #include <string.h>
 using namespace std;
 
-
+/*
+ * Node Struct
+*/
 
 struct Node{
 
@@ -13,13 +15,17 @@ struct Node{
 
 };
 
+/*
+ * Stack class
+*/
+
 class Stack{
 
 private:
 
-	Node * upper;
-	int size;
-	Node * lower;
+	Node * upper;	//pointer to the top most element
+	int size;	
+	Node * lower;	//pointer to the bottom element
 
 
 public:
@@ -32,14 +38,28 @@ public:
 
 };
 
+/*
+ * Stack constructor
+*/
+
 Stack::Stack(){
 	upper = NULL;
 	size = 0;
 }
 
+/*
+ * return the size of the stack
+*/
+
 int Stack::getSize(){
 	return size;
 }
+
+/*
+ * Adds an element to the top of the stack
+ *
+ * @param newData
+*/
 
 void Stack::push(int newData){
 	Node * newNode = new Node();
@@ -55,6 +75,10 @@ void Stack::push(int newData){
 		size++;
 	}
 }
+
+/*
+ * returns the top most element of the stack
+*/
 
 int Stack::pop(){
 	if(size == 0){
@@ -82,6 +106,12 @@ int Stack::pop(){
 	return retData;
 }
 
+/*
+ * Reverse the word using a stack
+ *
+ * @param word
+*/
+
 string Stack::reverseWord(string word){
 
 	string output = "";
@@ -101,11 +131,7 @@ string Stack::reverseWord(string word){
 
 	return output;
 
-	
 }
-
-
-
 
 
 
