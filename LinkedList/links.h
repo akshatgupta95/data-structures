@@ -47,7 +47,8 @@ using namespace std;
  	int getDataAt(int n, int len);
  	void deleteAll();
  	void sortedInsert(int data);
-    void swapHack(int data1, int data2);
+  void swapHack(int data1, int data2);
+  void reverse();
 
  };
 
@@ -341,6 +342,24 @@ using namespace std;
   sec->setData(data1);
 
 }
+
+void List::reverse(){
+
+  Node* p1 = head;
+  Node* p2 = NULL;
+  Node* p3 = NULL;
+   
+    while ( p1 != NULL )
+    {
+        head = p1;
+        p2 = p1->Next();
+        p1->setNext(p3);
+        p3 = p1;
+        p1 = p2;
+    }
+
+}
+
 
 
 
