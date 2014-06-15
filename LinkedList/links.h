@@ -343,6 +343,10 @@ using namespace std;
 
 }
 
+/*
+ * Reverse the Linked List
+*/
+
 void List::reverse(){
 
   Node* p1 = head;
