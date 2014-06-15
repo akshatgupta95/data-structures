@@ -344,7 +344,7 @@ using namespace std;
 }
 
 /*
- * Reverse the Linked List
+ * Reverse the Linked List completely
 */
 
 void List::reverse(){
