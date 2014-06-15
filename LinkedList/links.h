@@ -49,6 +49,7 @@ using namespace std;
  	void sortedInsert(int data);
   void swapHack(int data1, int data2);
   void reverse();
+  int nThLastElement(int n);
 
  };
 
@@ -362,6 +363,25 @@ void List::reverse(){
         p1 = p2;
     }
 
+}
+
+/*
+ * Returns the nTh Last Element from the list
+ *
+ * @param n
+*/
+
+int List::nThLastElement(int n){
+  int len = this->length();
+  int posFromFront = len - n;
+  Node * tmp = head;
+  int count = 0;
+
+  while(count != posFromFront){
+    tmp = tmp->Next();
+    count++;
+  }
+  return tmp->Data();
 }
 
 

@@ -10,8 +10,7 @@ using namespace std;
  	list.append(30);
  	list.append(40);
  	list.append(50);
- 	list.reverse();
- 	list.print();
+ 	cout << list.nThLastElement(5) << endl;	//10
 
 
 
