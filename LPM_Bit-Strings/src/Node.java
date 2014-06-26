@@ -57,7 +57,7 @@ public class Node {
 	}
 	
 	/*
-	 * leftChild always stand for 1
+	 * leftChild always stands for 1
 	 */
 	
 	public Node setLeftChild(){
