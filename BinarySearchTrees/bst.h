@@ -123,7 +123,7 @@ void BinarySearchTree<Comparable>::insert(const Comparable & x, BinaryNode<Compa
 }
 
 /*
- * InOrder Tree Traversal
+ * InOrder Tree Traversal (left, node, right)
  */
 
 template <typename Comparable>
