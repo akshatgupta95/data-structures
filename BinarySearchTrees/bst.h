@@ -1,5 +1,5 @@
-#ifndef BST_bst_h
-#define BST_bst_h
+#ifndef BST_H
+#define BST_H
 #include <iostream>
 using namespace std;
 
@@ -25,7 +25,7 @@ class BinaryNode{
 };
 
 /*
- * BinarySearchTree class
+ * BinarySearchTree class with Comparable
  */ 
 
 template <typename Comparable>
@@ -44,11 +44,12 @@ public:
 	bool contains(const Comparable & x, BinaryNode<Comparable> * node);
 	bool isEmpty(BinaryNode<Comparable> * node);
 	void printTreeInOrder(BinaryNode<Comparable> * node) const;			//print Left subtree, then Current node, then Right subtree
-	void makeEmpty();
+	// void makeEmpty();
 	void insert(const Comparable & x, BinaryNode<Comparable> * node);
-	void remove(const Comparable & x, BinaryNode<Comparable> * node);
-	const BinarySearchTree & operator=(const BinarySearchTree & rhs);
+	// const BinarySearchTree & operator=(const BinarySearchTree & rhs);
 	BinaryNode<Comparable> * getRoot();
+	BinaryNode<Comparable> * remove(const Comparable & x, BinaryNode<Comparable> * curr);
+	BinaryNode<Comparable> * getMinNode(BinaryNode<Comparable> * curr);
 	
 };
 
@@ -123,7 +124,7 @@ void BinarySearchTree<Comparable>::insert(const Comparable & x, BinaryNode<Compa
 }
 
 /*
- * InOrder Tree Traversal (left, node, right)
+ * InOrder Tree Traversal
  */
 
 template <typename Comparable>
@@ -134,10 +135,44 @@ void BinarySearchTree<Comparable>::printTreeInOrder(BinaryNode<Comparable> * cur
 	printTreeInOrder(curr->right);
 }
 
+template <typename Comparable>
+BinaryNode<Comparable> * BinarySearchTree<Comparable>::getMinNode(BinaryNode<Comparable> * curr){
+	if(curr == NULL) return NULL;
+	else if(curr->left == NULL) return curr;
+	return getMinNode(curr->left);
+}
 
 
-
-
+template <typename Comparable>
+BinaryNode<Comparable> * BinarySearchTree<Comparable>::remove(const Comparable & x, BinaryNode<Comparable> * curr){
+	if(curr == NULL){
+		return NULL;
+	}
+	else if(x < curr->data){
+		curr->left = remove(x, curr->left);
+	}
+	else if(x > curr->data){
+		curr->right = remove(x, curr->right);
+	}
+	else{
+		if((curr->left != NULL) && (curr->right != NULL)){
+			BinaryNode<Comparable> * min = getMinNode(curr->right);
+			curr->data = min->data;
+			curr->right = remove(min->data, curr->right);
+		}
+		else if(curr->left != NULL){
+			BinaryNode<Comparable> * tmp = curr->left;
+			delete curr;
+			return tmp;
+		}
+		else{
+			BinaryNode<Comparable> * tmp = curr->right;
+			delete curr;
+			return tmp;
+		}
+	}
+	return curr;
+}
 
 
 #endif
