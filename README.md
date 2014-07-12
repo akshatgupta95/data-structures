@@ -6,4 +6,5 @@ A cumulative collection of data structures.
 Run these projects by ...
 
 make
+
 ./program
