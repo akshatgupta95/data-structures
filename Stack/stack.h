@@ -38,6 +38,10 @@ public:
 
 };
 
+#include "stack.h"
+#include <iostream>
+using namespace std;
+
 /*
  * Stack constructor
 */
@@ -132,6 +136,8 @@ string Stack::reverseWord(string word){
 	return output;
 
 }
+
+
 
 
 
