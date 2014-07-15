@@ -54,5 +54,5 @@ public:
 };
 
 
-#include "bst.inc"
+#include "bst.cpp"
 #endif
