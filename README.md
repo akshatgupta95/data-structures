@@ -9,3 +9,9 @@ Run these programs (that have MakeFiles) by :-
 make
 ./program
 ```
+
+CleanUp by :-
+
+```
+make clean
+```
