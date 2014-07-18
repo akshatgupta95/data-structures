@@ -38,6 +38,7 @@ public:
 	void printTreeInOrder(AVLNode<Comparable> * curr);
 	AVLNode<Comparable> * findMin(AVLNode<Comparable> * curr);
 	AVLNode<Comparable> * findMax(AVLNode<Comparable> * curr);
+	void remove(const Comparable & x);
 	AVLNode<Comparable> * remove(const Comparable & x, AVLNode<Comparable> * curr);
 		
 };
@@ -155,6 +156,11 @@ AVLNode<Comparable> * AVLTree<Comparable>::insert(const Comparable & x, AVLNode<
 	else ;
 	curr->height = max(getHeight(curr->left), getHeight(curr->right)) + 1;
 	return curr;
+}
+
+template <typename Comparable>
+void AVLTree<Comparable>::remove(const Comparable & x){
+	root = remove(x, root);
 }
 
 template <typename Comparable>

@@ -9,6 +9,6 @@ int main(){
 	t.insert(25);
 	t.insert(45);
 	t.insert(55);	
-	t.remove(10, t.getRoot());
+	t.remove(45);
 	t.printTreeInOrder(t.getRoot());	//15 25 45 55
 }
