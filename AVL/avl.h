@@ -36,8 +36,25 @@ public:
 	int getHeight(AVLNode<Comparable> * curr);
 	int max(int a, int b);
 	void printTreeInOrder(AVLNode<Comparable> * curr);
+	AVLNode<Comparable> * findMin(AVLNode<Comparable> * curr);
+	AVLNode<Comparable> * findMax(AVLNode<Comparable> * curr);
+	AVLNode<Comparable> * remove(const Comparable & x, AVLNode<Comparable> * curr);
 		
 };
+
+template <typename Comparable>
+AVLNode<Comparable> * AVLTree<Comparable>::findMin(AVLNode<Comparable> * curr){
+	if(curr == NULL) return NULL;
+	if(curr->left == NULL) return curr;
+	return findMin(curr->left);
+}
+
+template <typename Comparable>
+AVLNode<Comparable> * AVLTree<Comparable>::findMax(AVLNode<Comparable> * curr){
+	if(curr == NULL) return NULL;
+	if(curr->right == NULL) return curr;
+	return findMin(curr->right);
+}
 
 template <typename Comparable>
 AVLTree<Comparable>::AVLTree(){
@@ -140,6 +157,30 @@ AVLNode<Comparable> * AVLTree<Comparable>::insert(const Comparable & x, AVLNode<
 	return curr;
 }
 
+template <typename Comparable>
+AVLNode<Comparable> * AVLTree<Comparable>::remove(const Comparable & x, AVLNode<Comparable> * curr){
+	if(curr == NULL){
+		return NULL;
+	}
+	else if(x < curr->data){
+		curr->left = remove(x, curr->left);
+	}
+	else if(x > curr->data){
+		curr->right = remove(x, curr->right);
+	}
+	else {
+		if((curr->left != NULL) && (curr->right != NULL)){
+			AVLNode<Comparable> * min = findMin(curr->right);
+			curr->data = min->data;
+			curr->right = remove(min->data, curr->right);
+		} else {
+			AVLNode<Comparable> * tmp = (curr->left != NULL) ? curr->left : curr->right;
+			delete curr;
+			return tmp;
+		}	
+	}
+	return curr;
+}
 
 
 
