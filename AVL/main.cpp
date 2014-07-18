@@ -9,5 +9,5 @@ int main(){
 	t.insert(25);
 	t.insert(45);
 	t.insert(55);	
-	t.printTreeInOrder(t.getRoot());
+	t.printTreeInOrder(t.getRoot());	//10 15 25 45 55
 }
