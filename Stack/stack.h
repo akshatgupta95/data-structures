@@ -1,5 +1,5 @@
-#ifndef STACK_stack_h
-#define STACK_stack_h
+#ifndef STACK_H
+#define STACK_H
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
@@ -38,9 +38,6 @@ public:
 
 };
 
-#include "stack.h"
-#include <iostream>
-using namespace std;
 
 /*
  * Stack constructor
@@ -136,8 +133,6 @@ string Stack::reverseWord(string word){
 	return output;
 
 }
-
-
 
 
 
