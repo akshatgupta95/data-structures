@@ -11,7 +11,7 @@ int main(){
 	t.insert((int) 1, t.getRoot());
 	t.remove((int) 10, t.getRoot());
 	
-	cout << (t.getRoot())->data << endl;	// 10
-	t.printTreeInOrder(t.getRoot());		// 1 10 15 20 30
+	cout << (t.getRoot())->data << endl;	// 15
+	t.printTreeInOrder(t.getRoot());		// 1 15 20 30
 	return 0;
 }
